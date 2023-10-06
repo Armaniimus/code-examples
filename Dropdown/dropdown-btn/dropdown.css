@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+}
+
+/* set hamburger variables */
+:root {
+  --bar-height: 10px;
+  --hamburger-gap: 5px;
+  --foreground: #333;
+  --background: white;
+  --hamburger-margin: 15px;
+  --animation-timing: .4s ease-in-out;
+
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  --bar-width: calc(var(--hamburger-height) * 1.4);
+}
+
+/* set base styling for the hamburger */
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+  content: "";
+  width: var(--bar-width);
+  padding: 0px;
+  margin: 0px;
+  border-width: 0;
+
+  height: var(--bar-height);
+  background-color: var(--foreground);
+  border-radius: 25px;
+
+  /* creates the animation timings for the hamburger */
+  transition: all var(--animation-timing);
+
+  /* sets the starting point for rotation transitions */
+  transform-origin: right center;
+}
+
+.hamburger-menu {
+  /* stacking the before, checkbox and after above eachother */
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  
+  width: max-content;
+  
+  /* positions the hamburger */
+  position: absolute;
+  top: var(--hamburger-margin);
+  right: var(--hamburger-margin);
+
+  cursor: pointer;
+  z-index: 2;
+
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);
+  padding: 2px;
+}
+
+/* style the checkbox(middle stripe) in the hamburger-btn */
+.hamburger-menu input {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+/* changes hamburger styling when checkbox is checked */
+.hamburger-menu:has(input:checked)::before {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
+}
+
+/* changes hamburger styling when checkbox is checked */
+.hamburger-menu:has(input:checked)::after {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+}
+
+/* hides the checkbox(middlestripe) when checking the checkbox */
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+  transform: translateX(50px);
+}
