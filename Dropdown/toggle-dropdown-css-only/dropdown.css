@@ -28,24 +28,32 @@ header {
   display: block;
 }
 
-.hamburger-menu:has(input:checked) + .dropdown-menu {
-  opacity: 1;
-  transform:  translateX(0);
-}
-
 /* dropdown menu styles */
 .dropdown-menu {
-  opacity: 0;
-  transition: all 1s ease-in-out;
-
+  /* position */
   position: absolute;
   top: 75px;
   right: 0px;
  
+  /* color */
   background-color: white;
   border-top: 1px solid black;
+
+  /* hide menu */
+  opacity: 0;
   transform: translateX(100%);
 
+  /* size */
   min-width: 150px;
   min-height: 200px;
+
+  /* set transition effect */
+  transition: all 1s ease-in-out;
+}
+
+/* make dropdown visible when checked */
+/* (select dropdown butten) (next sibling selector) (.dropdown-menu) */
+.hamburger-menu:has(input:checked) + .dropdown-menu {
+  opacity: 1;
+  transform: translateX(0);
 }
