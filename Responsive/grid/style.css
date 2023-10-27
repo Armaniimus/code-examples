@@ -1,32 +1,29 @@
-* {
-	box-sizing: border-box;
-}
-
-html, body {
+/* een reset om geen witte randen om je desktop te hebben*/
+body {
 	margin: 0;
 }
 
 header {
 	background-color: green;
-	grid-area: head;
+	grid-area: head; /* toewijzing van de head grid area aan de header */
 }
 
 main {
 	background-color: yellow;
-	grid-area: main;
+	grid-area: main; /* toewijzing van de head grid area aan de main */
 }
 
 aside {
 	background-color: blue;
-	grid-area: aside;
+	grid-area: aside; /* toewijzing van de head grid area aan de aside */
 }
 
 footer {
 	background-color: red;
-	grid-area: foot;
+	grid-area: foot; /* toewijzing van de head grid area aan de footer */
 }
 
-/* align content text */
+/* Styles voor wat mooiere uitgelijnde text in de blokken */
 header, main, aside, footer {
 	display: flex;
 	justify-content: center;
@@ -34,21 +31,23 @@ header, main, aside, footer {
 	font-size: 30px;
 }
 
+/* de styles voor de positionering en de grote van het grid op mobiel */
 body {
-	display: grid;
+	display: grid; /* activeerd het grid  */
 	grid-template-areas:
 		"head"
 		"aside"
 		"main"
-		"foot";
-	grid-template-rows: 150px 100px auto 60px;
-	grid-template-columns: auto;
-	height: 100vh;
+		"foot"; /* /\benodigt om het grid te kunnen gebruiken/\  */
+	grid-template-rows: 150px 100px auto 60px; /* stel de hoogte voor de template rijen in  */
+	grid-template-columns: auto; /* stel de breedtes voor de kolommen in */
+	height: 100vh; /* zorg dat het grid de hele pagina beslaat */
 }
 
+/* media query om bij schermen breder dan 780px styles te kunnen overschrijven */
 @media screen and (min-width: 780px) {
+	/* desktop stylen om het grid te overschrijven */
 	body {
-		display: grid;
 		grid-template-areas:
 			"head head"
 			"main aside"
