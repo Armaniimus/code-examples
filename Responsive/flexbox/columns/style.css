@@ -1,0 +1,58 @@
+html,
+body {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: black;
+}
+
+main {
+	margin: auto;
+	max-width: 800px;
+	background-color: #222;
+	min-height: 100vh;
+}
+
+.flexbox {
+	display: flex;
+	padding: 10px 15px;
+
+	flex-wrap: wrap;
+	align-content: start;
+}
+
+.col-12 {
+	width: 100%; /* sets the width of each column */
+	padding: 0 5px; /* used to create distance between columns */
+	margin-bottom: 15px; /*used to create distance between rows*/
+}
+
+.item {
+	min-height: 400px;
+	background-color: white;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media screen and (min-width: 780px) {
+	.col-md-6 {
+		width: 50%; /* sets the width of each column */
+		padding: 0 5px; /* used to create distance between columns */
+		margin-bottom: 15px; /*used to create distance between rows*/
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.col-lg-4 {
+		width: 33%; /* sets the width of each column */
+		padding: 0 5px; /* used to create distance between columns */
+		margin-bottom: 15px; /*used to create distance between rows*/
+	}
+}
